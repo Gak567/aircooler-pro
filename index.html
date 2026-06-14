@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirChill Pro — Beat the Heat This Summer</title>
+
+  <!-- FB Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','824349877376369');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=824349877376369&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #111; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2a4a 60%, #0a3d6b 100%);
+      color: #fff;
+      padding: 20px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,180,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-block;
+      background: #ff4444;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero h1 span { color: #00c8ff; }
+    .hero p {
+      font-size: clamp(15px, 3vw, 18px);
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .hero-img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 16px;
+      margin: 0 auto 24px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0,200,255,0.2);
+    }
+    .price-block {
+      margin-bottom: 20px;
+    }
+    .price-old {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .price-new {
+      font-size: clamp(36px, 8vw, 52px);
+      font-weight: 900;
+      color: #fff;
+    }
+    .price-new span { color: #00c8ff; font-size: 0.6em; vertical-align: super; }
+    .save-tag {
+      display: inline-block;
+      background: #ff4444;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 12px;
+      background: linear-gradient(135deg, #ff6b00, #ff4400);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 24px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(255,100,0,0.5);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.5px;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,100,0,0.6); }
+    .cta-btn:active { transform: translateY(0); }
+    .guarantee {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #dde;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a3a5c;
+      flex: 1;
+      min-width: 140px;
+      justify-content: center;
+      border-right: 1px solid #dde;
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-item .icon { font-size: 20px; }
+
+    /* FEATURES */
+    .features {
+      padding: 50px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: clamp(22px, 5vw, 34px);
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #0a1628;
+    }
+    .features .sub {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #f7fbff;
+      border-radius: 16px;
+      padding: 28px 20px;
+      border: 1px solid #e0eeff;
+    }
+    .feature-card .icon { font-size: 40px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: #0a1628; }
+    .feature-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* HOW IT WORKS */
+    .how {
+      background: #0a1628;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .how h2 {
+      font-size: clamp(22px, 5vw, 34px);
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+    .how h2 span { color: #00c8ff; }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      text-align: left;
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: #00c8ff;
+      color: #0a1628;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .step-text h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .step-text p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+    /* SOCIAL PROOF */
+    .reviews {
+      padding: 50px 20px;
+      background: #fafafa;
+      text-align: center;
+    }
+    .reviews h2 {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #0a1628;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      border: 1px solid #eee;
+    }
+    .stars { color: #ffc107; font-size: 18px; margin-bottom: 10px; }
+    .review-card p { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+    .reviewer { font-size: 13px; font-weight: 700; color: #0a1628; }
+    .verified { font-size: 11px; color: #28a745; }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      background: linear-gradient(135deg, #0a1628, #0d2a4a);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .cta-bottom h2 {
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-bottom h2 span { color: #00c8ff; }
+    .cta-bottom p {
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a1628;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* STICKY CTA mobile */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,22,40,0.97);
+      padding: 12px 16px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    }
+    .sticky-bar .price { color: #fff; font-weight: 800; font-size: 18px; }
+    .sticky-bar .price small { color: rgba(255,255,255,0.5); text-decoration: line-through; font-size: 13px; display: block; font-weight: 400; }
+    .sticky-bar a {
+      background: linear-gradient(135deg, #ff6b00, #ff4400);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 14px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(255,100,0,0.4);
+    }
+
+    @media (max-width: 480px) {
+      .trust-item { font-size: 11px; padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">🔥 Summer Sale — 50% OFF Today Only</div>
+  <h1>Finally Cool Your Room<br><span>Without an AC Unit</span></h1>
+  <p>The AirChill Pro uses ice-cold semiconductor technology to drop your room temperature in seconds. No installation. Just plug in.</p>
+
+  <img class="hero-img"
+    src="product.jpg"
+    alt="AirChill Pro Portable Air Cooler" />
+
+  <div class="price-block">
+    <div class="price-old">$99.99</div>
+    <div class="price-new"><span>$</span>49.99 <span class="save-tag">SAVE 50%</span></div>
+  </div>
+
+  <a class="cta-btn" href="#order" onclick="fbq('track','AddToCart')">
+    🛒 Get My AirChill Pro Now →
+  </a>
+  <p class="guarantee">✅ Free Shipping &nbsp;|&nbsp; 30-Day Money Back &nbsp;|&nbsp; Limited Stock</p>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">🚚</span> Free US Shipping</div>
+  <div class="trust-item"><span class="icon">🔄</span> 30-Day Returns</div>
+  <div class="trust-item"><span class="icon">⭐</span> 4.8/5 Rating</div>
+  <div class="trust-item"><span class="icon">🔒</span> Secure Checkout</div>
+</div>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2>Why 50,000+ People Love AirChill Pro</h2>
+  <p class="sub">The smartest way to stay cool this summer</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">❄️</div>
+      <h3>Ice-Cold in Seconds</h3>
+      <p>Semiconductor cooling drops temperature instantly. No waiting, no warm-up time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔌</div>
+      <h3>No Installation</h3>
+      <p>Just plug into any USB port or outlet. Works anywhere — bedroom, office, car.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">💧</div>
+      <h3>Humidifies the Air</h3>
+      <p>Adds moisture while cooling. Bye dry, stuffy air. Hello fresh summer breeze.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔇</div>
+      <h3>Whisper Quiet</h3>
+      <p>Ultra-silent operation. Sleep through the night without hearing a thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>How It Works — <span>3 Simple Steps</span></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Fill with cold water or ice</h3>
+        <p>Add water to the tank. For extra cooling, drop in a few ice cubes.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Plug in & power on</h3>
+        <p>Connect to any USB port or outlet. Press the power button.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Enjoy instant cold air</h3>
+        <p>Feel the temperature drop in your room within seconds. That's it.</p>
+      </div>
+    </div>
+  </div>
+  <a class="cta-btn" href="#order" onclick="fbq('track','AddToCart')" style="max-width:400px;margin:0 auto;">
+    🛒 Order Now — $49.99
+  </a>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2>⭐ Real Customer Reviews</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"This thing is AMAZING. My bedroom was unbearable at night and now it's perfectly cool. Best $50 I've ever spent."</p>
+      <div class="reviewer">Sarah M. — Texas</div>
+      <div class="verified">✅ Verified Purchase</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"I was skeptical but wow — it actually works. My office stays cool all day. No more sweating at my desk!"</p>
+      <div class="reviewer">James K. — Florida</div>
+      <div class="verified">✅ Verified Purchase</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Super easy to use and very quiet. I sleep with it on every night. The ice mode is next level cold!"</p>
+      <div class="reviewer">Maria L. — California</div>
+      <div class="verified">✅ Verified Purchase</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom" id="order">
+  <h2>Don't Suffer Through<br><span>Another Hot Night</span></h2>
+  <p>Stock is limited. Order now and get FREE shipping + 50% off.</p>
+  <a class="cta-btn" href="https://vovatre234.systeme.io/b8676347" onclick="fbq('track','InitiateCheckout')" style="max-width:400px;margin:0 auto 16px;">
+    🛒 Get My AirChill Pro — $49.99 →
+  </a>
+  <p style="color:rgba(255,255,255,0.6);font-size:13px;">✅ Free Shipping &nbsp;|&nbsp; 30-Day Money Back Guarantee &nbsp;|&nbsp; Secure Payment</p>
+</section>
+
+<footer>
+  <p>© 2026 AirChill Pro. All rights reserved. &nbsp;|&nbsp; <a href="#" style="color:inherit;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:inherit;">Refund Policy</a></p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="price">
+    <small>$99.99</small>
+    $49.99
+  </div>
+  <a href="#order" onclick="fbq('track','AddToCart')">Get 50% OFF →</a>
+</div>
+
+</body>
+</html>
