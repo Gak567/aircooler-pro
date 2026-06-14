@@ -67,14 +67,43 @@
       margin: 0 auto 24px;
       line-height: 1.6;
     }
-    .hero-img {
+    .slider-wrap {
+      position: relative;
       width: 100%;
       max-width: 340px;
-      border-radius: 16px;
       margin: 0 auto 24px;
-      display: block;
+      border-radius: 16px;
+      overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,200,255,0.2);
+      aspect-ratio: 1/1;
+      background: #0d2a4a;
     }
+    .slider-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .slider-wrap img.active { opacity: 1; }
+    .slider-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+    .slider-dots span {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slider-dots span.active { background: #fff; }
     .price-block {
       margin-bottom: 20px;
     }
@@ -332,9 +361,18 @@
   <h1>Finally Cool Your Room<br><span>Without an AC Unit</span></h1>
   <p>The AirChill Pro uses ice-cold semiconductor technology to drop your room temperature in seconds. No installation. Just plug in.</p>
 
-  <img class="hero-img"
-    src="product.jpg"
-    alt="AirChill Pro Portable Air Cooler" />
+  <div class="slider-wrap">
+    <img src="product.jpg" alt="AirChill Pro" class="active" />
+    <img src="1_99b2d768-e458-4458-906d-a74a09504178_fine.jpeg" alt="AirChill Pro" />
+    <img src="2_baebc2db-1d7c-449c-a639-79fcb0a2a7d4_fine.jpeg" alt="AirChill Pro" />
+    <img src="3_7bb38a03-7169-4a3b-ad95-3dd383581942_fine.jpeg" alt="AirChill Pro" />
+    <img src="4_9b280818-e884-4842-965d-20c6085570a1_fine.jpeg" alt="AirChill Pro" />
+    <img src="6_291c2c06-7610-49e1-9595-9abdd888abec.jpg" alt="AirChill Pro" />
+    <img src="7_b08e3a55-0f55-442b-8355-85b43df714d4.jpg" alt="AirChill Pro" />
+    <img src="8_2809b8ec-9e5c-459e-adc0-d6d75f97cff9.jpg" alt="AirChill Pro" />
+    <img src="9_7c540b1c-2fad-448f-b0c0-a29b60548052.jpg" alt="AirChill Pro" />
+    <div class="slider-dots" id="dots"></div>
+  </div>
 
   <div class="price-block">
     <div class="price-old">$99.99</div>
@@ -462,5 +500,26 @@
   <a href="#order" onclick="fbq('track','AddToCart')">Get 50% OFF →</a>
 </div>
 
+<script>
+  (function(){
+    const imgs = document.querySelectorAll('.slider-wrap img');
+    const dotsEl = document.getElementById('dots');
+    let cur = 0;
+    imgs.forEach((_,i) => {
+      const d = document.createElement('span');
+      if(i===0) d.classList.add('active');
+      d.addEventListener('click', () => go(i));
+      dotsEl.appendChild(d);
+    });
+    function go(n){
+      imgs[cur].classList.remove('active');
+      dotsEl.children[cur].classList.remove('active');
+      cur = (n + imgs.length) % imgs.length;
+      imgs[cur].classList.add('active');
+      dotsEl.children[cur].classList.add('active');
+    }
+    setInterval(() => go(cur+1), 3000);
+  })();
+</script>
 </body>
 </html>
